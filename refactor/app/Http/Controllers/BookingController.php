@@ -40,7 +40,7 @@ class BookingController extends Controller
 
             $response = $this->repository->getUsersJobs($user_id);
 
-        }
+        } // user roles here
         elseif($request->__authenticatedUser->user_type == env('ADMIN_ROLE_ID') || $request->__authenticatedUser->user_type == env('SUPERADMIN_ROLE_ID'))
         {
             $response = $this->repository->getAll($request);
@@ -66,6 +66,7 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
+    	// data serialization here
         $data = $request->all();
 
         $response = $this->repository->store($request->__authenticatedUser, $data);

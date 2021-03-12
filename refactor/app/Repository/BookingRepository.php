@@ -866,7 +866,7 @@ class BookingRepository extends BaseRepository
             $job->save();
             $job_data = $this->jobToData($job);
 
-            $subject = 'Vi har nu återöppnat er bokning av ' . TeHelper::fetchLanguageFromJobId($job->from_language_id) . 'tolk för bokning #' . $job->id;
+            $subject = 'Vi har nu återöppnat er bokning av ' . TeHelper::fetchLanguageFromJobId($job->from_language_id) . 'tolk för bokning #' . $job->id; // laravel notiocation here
             $this->mailer->send($email, $name, $subject, 'emails.job-change-status-to-customer', $dataEmail);
 
             $this->sendNotificationTranslator($job, $job_data, '*');   // send Push all sutiable translators
@@ -874,7 +874,7 @@ class BookingRepository extends BaseRepository
             return true;
         } elseif ($changedTranslator) {
             $job->save();
-            $subject = 'Bekräftelse - tolk har accepterat er bokning (bokning # ' . $job->id . ')';
+            $subject = 'Bekräftelse - tolk har accepterat er bokning (bokning # ' . $job->id . ')'; // laravel notiocation here
             $this->mailer->send($email, $name, $subject, 'emails.job-accepted', $dataEmail);
             return true;
         }
