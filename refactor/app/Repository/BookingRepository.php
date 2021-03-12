@@ -1910,7 +1910,7 @@ class BookingRepository extends BaseRepository
         $consumer_type = TeHelper::getUsermeta($cuser->id, 'consumer_type');
 
 
-        if ($cuser && $cuser->is('superadmin')) {
+        if ($cuser && $cuser->is('superadmin')) { // use ORM here
             $allJobs = DB::table('jobs')
                 ->join('languages', 'jobs.from_language_id', '=', 'languages.id')->whereIn('jobs.id', $jobId);
             if (isset($requestdata['lang']) && $requestdata['lang'] != '') {
@@ -1998,7 +1998,7 @@ class BookingRepository extends BaseRepository
 
 
         if ($cuser && ($cuser->is('superadmin') || $cuser->is('admin'))) {
-            $allJobs = DB::table('jobs')
+            $allJobs = DB::table('jobs') // use ORM here
                 ->join('languages', 'jobs.from_language_id', '=', 'languages.id')
                 ->where('jobs.ignore_expired', 0);
             if (isset($requestdata['lang']) && $requestdata['lang'] != '') {
