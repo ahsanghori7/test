@@ -34,7 +34,8 @@ class BookingController extends Controller
      * @return mixed
      */
     public function index(Request $request)
-    {
+    {  
+    	// auth here
         if($user_id = $request->get('user_id')) {
 
             $response = $this->repository->getUsersJobs($user_id);
