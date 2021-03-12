@@ -1,0 +1,6 @@
+i think good is ok, 
+but we can improve by using proper user role managemnt instead of using it through .env, 
+send notification of laravel for sending emails, 
+ajax request must be check before use it, 
+use ORM to imporove performance, 
+use AUTH for user authentication, 
